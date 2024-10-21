@@ -1,10 +1,11 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "cocopon/iceberg.vim",
+    lazy = false, -- load on startup
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme tokyonight]])
+      -- load the color scheme here
+      vim.cmd([[colorscheme iceberg]])
     end,
   },
 }

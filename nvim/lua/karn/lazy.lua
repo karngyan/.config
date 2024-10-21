@@ -11,5 +11,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("karn.plugins")
+require("lazy").setup({ { import = "karn.plugins" }, { import = "karn.plugins.lsp"} }, {
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false
+  },
+})
+
 

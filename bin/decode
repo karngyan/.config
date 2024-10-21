@@ -1,0 +1,19 @@
+#!/opt/homebrew/bin/python3
+
+import base64
+import urllib.parse
+import argparse
+
+def decode_base64_url(input_string):
+    base64_decoded = base64.b64decode(input_string)
+    url_decoded = urllib.parse.unquote(base64_decoded.decode('utf-8'))
+    return url_decoded
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Base64 and URL decoder')
+    parser.add_argument('input_string', help='Base64 string to decode')
+    args = parser.parse_args()
+    
+    decoded_string = decode_base64_url(args.input_string)
+    print(decoded_string)
+

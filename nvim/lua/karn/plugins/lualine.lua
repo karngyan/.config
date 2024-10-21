@@ -11,6 +11,13 @@ return {
         theme = "iceberg_dark",
       },
       sections = {
+        lualine_c = {
+          {
+            "filename",
+            file_status = true,
+            path = 1,
+          },
+        },
         lualine_x = {
           {
             lazy_status.updates,

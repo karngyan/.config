@@ -6,8 +6,6 @@ return {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-    require("nvim-ts-autotag").setup()
-
     -- io itesitter plugin
     local treesitter = require("nvim-treesitter.configs")
 

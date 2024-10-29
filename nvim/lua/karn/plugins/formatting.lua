@@ -22,6 +22,8 @@ return {
         python = { "isort", "black" },
         go = { "gofmt", "goimports" },
         sql = { "sqlfmt" },
+        hbs = { "prettier" },
+        gts = { "prettier" },
       },
       format_on_save = function(bufnr)
         -- Disable with a global or buffer-local variable

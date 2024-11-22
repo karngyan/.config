@@ -41,7 +41,6 @@ return {
         "glint",
         "gopls",
         "ast_grep",
-        "harper_ls",
       },
     })
 

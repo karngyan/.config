@@ -3,6 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local lint = require("lint")
+    local lint_disabled_files = {}
 
     lint.linters_by_ft = {
       javascript = { "eslint_d" },
@@ -18,11 +19,27 @@ return {
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
       group = lint_augroup,
       callback = function()
+        local current_file = vim.fn.expand("%:p")
+        if lint_disabled_files[current_file] then
+          return
+        end
         lint.try_lint()
       end,
     })
 
-    vim.keymap.set("n", "<leader>l", function()
+    -- Toggle linting for the current file
+    vim.keymap.set("n", "<leader>lt", function()
+      local current_file = vim.fn.expand("%:p")
+      lint_disabled_files[current_file] = not lint_disabled_files[current_file]
+      if lint_disabled_files[current_file] then
+        print("Linting disabled for " .. current_file)
+      else
+        print("Linting enabled for " .. current_file)
+        lint.try_lint()
+      end
+    end, { desc = "Toggle linting for current file" })
+
+    vim.keymap.set("n", "<leader>ll", function()
       lint.try_lint()
     end, { desc = "Trigger linting for current file" })
   end,

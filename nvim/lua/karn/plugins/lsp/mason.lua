@@ -40,7 +40,6 @@ return {
         "ember",
         "glint",
         "gopls",
-        "golangci_lint_ls",
         "ast_grep",
         "harper_ls",
       },
@@ -56,7 +55,6 @@ return {
         "goimports",
         "pylint",
         "eslint_d",
-        "golangci-lint",
       },
     })
   end,

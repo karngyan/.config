@@ -54,6 +54,7 @@ return {
         "goimports",
         "pylint",
         "eslint_d",
+        "sqlfmt",
       },
     })
   end,
